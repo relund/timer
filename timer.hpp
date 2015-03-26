@@ -2,7 +2,7 @@
  * @file timer.hpp
  * Header file for the timer class.
  *
- * Inspired by how time is measured in the microbenchmark R package
+ * Inspired by how time is measured in the microbenchmark R package that use a
  * (BSD 2-Clause License)
  *
  * Current version at <github>
@@ -14,7 +14,8 @@
 #include <limits>
 #include <iostream>
 #include <string>
-#if defined(WIN32)
+#if defined(WIN32) || defined(_WIN32)
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #elif defined(__MACH__) || defined(__APPLE__)
 #include <mach/mach_time.h>
@@ -129,8 +130,7 @@ nanotime_t MaxTime() { return std::numeric_limits<uint64_t>::max(); }
 private:
 
 /** Function to get the current time. Different depending on OS. */
-#if defined(WIN32)
-#include <windows.h>
+#if defined(WIN32) || defined(_WIN32) || defined(_WIN64)
 static nanotime_t GetNanoTime(void) {
     LARGE_INTEGER time_var, frequency;
     QueryPerformanceCounter(&time_var);
