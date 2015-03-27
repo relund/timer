@@ -21,7 +21,7 @@ int main()
     timer.StopTimer();
     cout << "Time in seconds: " << timer.ElapsedTime("sec") << endl;
     cout << "Time in minutes: " << timer.ElapsedTime("min") << endl;
-    cout << "Total time: " << timer.CumulativeTime("sec") << endl;
+    cout << "Total time in seconds: " << timer.CumulativeTime("sec") << endl;
     cout << "Finished.";
     return 0;
 }
