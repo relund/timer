@@ -5,7 +5,7 @@
  * Inspired by how time is measured in the microbenchmark R package that use a
  * (BSD 2-Clause License)
  *
- * Current version at <github>
+ * Current version at https://github.com/relund/timer
 */
 #ifndef TIMER_HPP
 #define TIMER_HPP
